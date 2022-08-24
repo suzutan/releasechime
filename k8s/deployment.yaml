@@ -21,8 +21,9 @@ spec:
               name: releasechime-env
           - secretRef:
               name: releasechime-secret-env
-    volumes:
-      - name: cache-volume
-        emptyDir: {}
-      
-status: {}
+        volumeMounts:
+          - name: cache
+            mountPath: /app/data
+      volumes:
+        - name: cache
+          emptyDir: {}
