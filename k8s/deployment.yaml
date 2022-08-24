@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: releasechime
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: releasechime
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: releasechime
+    spec:
+      containers:
+      - image: ghcr.io/slashnephy/releasechime
+        name: releasechime
+        envFrom:
+          - configMapRef:
+              name: releasechime-env
+          - secretRef:
+              name: releasechime-secret-env
+    volumes:
+      - name: cache-volume
+        emptyDir: {}
+      
+status: {}
