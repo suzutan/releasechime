@@ -4,14 +4,7 @@ metadata:
   name: releasechime
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: releasechime
-  strategy: {}
   template:
-    metadata:
-      labels:
-        app: releasechime
     spec:
       containers:
       - image: ghcr.io/slashnephy/releasechime

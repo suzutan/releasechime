@@ -3,12 +3,11 @@ resources:
 
 commonLabels:
   app: "releasechime"
-  repository: "https://github.com/slashnephy/releasechime"
 
 configMapGenerator:
 - name: releasechime-env
   literals:
-    - INTERVAL_SEC="30"
+    - INTERVAL_SEC="600"
     - LOG_LEVEL="TRACE"
     - TARGET_RELEASE_REPOSITORIES="SlashNephy/saya"
     - TARGET_RELEASE_REPOSITORIES2="mirakc/mirakc"
